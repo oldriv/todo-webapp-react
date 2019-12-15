@@ -4,10 +4,10 @@ import Todo from '../Todo';
 import TodoListHeader from './TodoListHeader';
 
 const TodoList = (props) => {
-    const {todos, title, description} = props;
+    const {todos, name, description} = props;
     return (
         <div className="todo-list">
-            <TodoListHeader title={title} description={description} />
+            <TodoListHeader name={name} description={description} />
             <div>
                 {todos.map((todo, i) => {
                     const {content, isCompleted} = todo;

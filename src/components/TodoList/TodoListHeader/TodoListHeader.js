@@ -1,10 +1,10 @@
 import React from 'react';
 import './TodoListHeader.css';
 
-function TodoListHeader({title, description}) {
+function TodoListHeader({name, description}) {
     return (
         <header>
-            <h1>{title}</h1>
+            <h1>{name}</h1>
             <p>{description}</p>
         </header>
     );
