@@ -1,0 +1,7 @@
+.input-container {
+    width: 100%;
+}
+.input-element {
+    border-bottom: 2px solid grey;
+    padding: 1em;
+}
