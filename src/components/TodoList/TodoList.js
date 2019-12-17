@@ -74,8 +74,6 @@ const TodoList = (props) => {
 
         const onKeyDown = (event) => {
             if(event.key === 'Enter') {
-                console.log("new name: " + newName)
-                console.log("new description: " + newDescription)
                 update(newName, newDescription);
             }
         }

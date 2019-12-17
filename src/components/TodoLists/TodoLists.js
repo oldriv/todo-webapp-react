@@ -6,7 +6,13 @@ const TodoLists = (props) => {
 
     const onKeyDown = (event, index) => {
         if (event.key === 'Enter') {
-            onSelectionChange(index)
+            onSelectionChange(index);
+        }
+    }
+
+    const onNewButtonKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            createTodoList('','');
         }
     }
     return (
@@ -15,6 +21,8 @@ const TodoLists = (props) => {
           <li 
             tabIndex={1}
             className={`todo-lists__item todo-lists__item--new ${ todoLists.length % 2 === 1 && 'todo-lists__item--odd'}`}
+            onClick={() => createTodoList()}
+            onKeyDown={(e) => onNewButtonKeyDown(e)}
           >
             <span>+</span>
           </li>

@@ -10,18 +10,25 @@ function App() {
   const [selectedList, setSelectedList] = React.useState(todoLists[selectedTodoListIndex]);
 
   const createTodoList = (name, description) =>{
-    setTodoLists(...todoLists, {name, description, todos:[]})
+    const newTodoLists = [{name:name, description:description, todos:[]}, ...todoLists]
+    setTodoLists(newTodoLists)
+    selectTodoList(0);
   }
 
   const selectTodoList = (index) => {
-    console.log("Selectiong " + index)
     setSelectedTodoListIndex(index);
     setSelectedList(todoLists[index]);
   }
 
   const updateCurrentTodoList = (updatedTodoList) => {
-    console.log("Updating current todo list")
-    console.log(updatedTodoList)
+   
+    const updatedTodos = todoLists.map((list, i) => {
+      if(i === selectedTodoListIndex) {
+        return updatedTodoList;
+      }
+      return list;
+    });
+    setTodoLists(updatedTodos)
     setSelectedList(updatedTodoList);
   } 
 
