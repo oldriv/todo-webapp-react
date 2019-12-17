@@ -3,15 +3,25 @@ import PropTypes from 'prop-types';
 
 import './Input.css';
 
-const Input = ({id, type, value, autoFocus}) => {
+const Input = (props) => {
+    const {
+        id,
+        type,
+        value,
+        autoFocus, 
+        onChange,
+        onKeyDown,
+    } = props;
     return(
-        <div className='input-container'>
+        <div className='input__container'>
             <input
-                className='input-element'
+                className='input__input'
                 autoFocus={autoFocus}
                 id={id}
                 type={type}
                 value={value}
+                onChange={onChange}
+                onKeyDown={onKeyDown}
             />
         </div>
     );
@@ -21,13 +31,15 @@ Input.propTypes = {
     id: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.any,
-    autoFocus: PropTypes.bool
+    autoFocus: PropTypes.bool,
+    onChange: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }
 
 Input.defaultProps = {
     type: 'text',
-    value: '',
-    autoFocus: true
+    value: 'Make a list.',
+    autoFocus: false,
 }
 
 export default Input;

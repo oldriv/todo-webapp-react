@@ -1,65 +1,42 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import TodoList from '../TodoList/';
 import { loadList } from '../../services/todo-service'
-
-const list = loadList();
+import TodoLists from '../TodoLists/TodoLists';
 
 function App() {
-  const [todoList, setTodoList] = useState(list);
+  const [todoLists, setTodoLists] = React.useState(loadList());
+  const [selectedTodoListIndex, setSelectedTodoListIndex] = React.useState(0);
+  const [selectedList, setSelectedList] = React.useState(todoLists[selectedTodoListIndex]);
 
-  const handleKeyDownAtIndex = (event, index) => {
-    if (event.key === 'Enter') {
-      createTodoAtIndex(index);
-    }
-    if (event.key === 'Backspace' && todoList.todos[index].content === '') {
-      event.preventDefault();
-      return removeTodoAtIndex(index);
-    }
+  const createTodoList = (name, description) =>{
+    setTodoLists(...todoLists, {name, description, todos:[]})
   }
 
-  const createTodoAtIndex = (index) => {
-    console.log("creating new todo at index " + index)
-    const newTodoList = {...todoList};
-    const blankTodo = { content: '', isCompleted:false };
-    newTodoList.todos.splice(index + 1, 0, blankTodo);
-    setTodoList(newTodoList);
+  const selectTodoList = (index) => {
+    console.log("Selectiong " + index)
+    setSelectedTodoListIndex(index);
+    setSelectedList(todoLists[index]);
   }
 
-  const updateTodoAtIndex = (event, index) => {
-    const newTodoList = {...todoList};
-    newTodoList.todos[index].content = event.target.value;
-    setTodoList(newTodoList);
-  }
-
-  const removeTodoAtIndex = (index) => {
-    if (index === 0 && todoList.todos.length === 1) return;
-    const newTodoList = {...todoList};
-    newTodoList.todos.splice(index, 1);
-    setTodoList(newTodoList);
-    /*
-    setTimeout(() => {
-      document.forms[0].elements[index - 1].focus();
-    }, 0);
-    */
-  }
-
-  const toggleTodoAtIndex = (index) => {
-    const newTodoList = {...todoList};
-    newTodoList.todos[index].isCompleted = !newTodoList.todos[index].isCompleted;
-    setTodoList(newTodoList);
-  }
+  const updateCurrentTodoList = (updatedTodoList) => {
+    console.log("Updating current todo list")
+    console.log(updatedTodoList)
+    setSelectedList(updatedTodoList);
+  } 
 
   return (
-    <div className="App">
-        <TodoList 
-          {...todoList} 
-          createTodoAtIndex={createTodoAtIndex}
-          updateTodoAtIndex={updateTodoAtIndex}
-          removeTodoAtIndex={removeTodoAtIndex}
-          toggleTodoAtIndex={toggleTodoAtIndex}
-          handleKeyDownAtIndex = {handleKeyDownAtIndex}
-        />
+    <div className="app__container">
+      <div className="app__header">
+        <h1>Todo, todo, todo-todo-todo-todo todooooooooo</h1>
+      </div>
+      <TodoLists 
+        todoLists = {todoLists}
+        currentSelection={selectedTodoListIndex}
+        onSelectionChange={selectTodoList}
+        createTodoList={createTodoList}
+      />
+      <TodoList todoList={selectedList} updateTodoList={updateCurrentTodoList} />
     </div>
   );
 }

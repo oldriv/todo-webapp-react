@@ -1,0 +1,73 @@
+.todo-lists__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1d22;
+}
+
+.todo-lists__list{
+  display:flex;
+  margin: 0;
+  align-items: center;
+}
+
+.todo-lists__item {
+  padding: 2em;
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 200px;
+  max-height: 200px;
+  border: 2px solid #2e353c;
+  background-color: #2e353c;
+  display:flex;
+  flex-direction: column;  justify-content: center;
+}
+
+.todo-lists__item h2 {
+  width:100%;
+}
+
+.todo-lists__item:hover  {
+  border: 2px solid azure;
+}
+.todo-lists__item:focus {
+  border: 2px solid azure;
+}
+.todo-lists__item--odd {
+  background-color: #414a53;
+  border: 2px solid #414a53;
+}
+
+.todo-lists__item--new{
+  min-width: 80px;
+  max-width: 80px;
+  min-height: 80px;
+  max-height: 80px;
+  margin: 60px;
+  -webkit-box-shadow: 2px 14px 15px -6px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 14px 15px -6px rgba(0,0,0,0.5);
+  box-shadow: 2px 14px 15px -6px rgba(0,0,0,0.5);
+}
+
+.todo-lists__item--new:hover, .todo-lists__item--new:focus{
+  -webkit-box-shadow: 2px 14px 15px -6px rgba(0,0,0,0.05);
+  -moz-box-shadow: 2px 14px 15px -6px rgba(0,0,0,0.05);
+  box-shadow: 2px 14px 15px -6px rgba(0,0,0,0.05);
+  transition: all .2s ease;
+}
+  
+.todo-lists__item--new span{
+  font-size: 8em;
+  line-height: 2em;
+  padding-bottom: 20px;
+}
+
+.todo-lists__item--new:focus, .todo-lists__item--new span:focus{
+  outline: none;
+}
+
+.todo-lists__item--selected {
+    background-color: #282c34;
+    border: 2px solid #282c34;
+}

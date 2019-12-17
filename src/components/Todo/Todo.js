@@ -1,16 +1,24 @@
 import React from 'react';
 import './Todo.css'
+import TextInput from '../TextInput/TextInput';
 
 const Todo = (props) => {
-    const {content, isCompleted, toggleTodo, handleKeyDown, handleChange } = props;
+    const {
+        content, 
+        isCompleted, 
+        toggle, 
+        update,
+        ...other
+    } = props;
     return (
-        <div className={`todo ${isCompleted && 'todo-is-completed'}`}>
-            <div className="checkbox" onClick={toggleTodo}/>
-            <input 
+        <div className={`todo__container ${isCompleted && 'todo__container--completed'}`}>
+            <div className="todo__checkbox" onClick={toggle}/>
+            <TextInput 
                 type="text" 
                 value={content}
-                onKeyDown={event => handleKeyDown(event)}
-                onChange={event => handleChange(event)}
+                onChange={event => update(event)}
+                autoFocus={false}
+                {...other}
             />
         </div>
     )

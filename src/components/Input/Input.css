@@ -1,7 +1,18 @@
-.input-container {
+.input__container {
     width: 100%;
 }
-.input-element {
+.input__input {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1.4rem;
+    outline: none;
+    width: 100%;
+    border-bottom: 2px solid rgba(0,0,0,0);
+    transition: border-bottom .2s ease-in-out;
     border-bottom: 2px solid grey;
-    padding: 1em;
+    font-size: 2em;
 }
+.input__input:focus {
+    border-bottom: 2px solid white;
+  }

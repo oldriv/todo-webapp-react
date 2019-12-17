@@ -1,12 +1,23 @@
 body {
   background-color: #282c34;
   min-height: 100vh;
+  color:white;
 }
 
-.app {
-  padding-top: 10rem;
+ul {
+  list-style: none;
+  padding: 0;
+  line-height: 2rem;
+  
 }
 
-.App {
+.app__container {
+  text-align: center;
+  
+}
+.app__header {
+  padding: 1em 2em;
+}
+.app__header h1 {
   text-align: center;
 }

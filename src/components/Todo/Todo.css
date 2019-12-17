@@ -1,47 +1,49 @@
-.todo {
-    display: flex;
-    align-items: center;
-    margin: 1rem 0;
-  }
+.todo__container {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
   
-  .todo-is-completed .checkbox {
-    color: #000;
-    background: #fff;
-  }
-  
-  .todo-is-completed input {
-    text-decoration: line-through;
-  }
-  
-  .checkbox {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-    font-size: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color .2s ease-in-out;
-    border: 1px solid #fff;
-  }
-  
-  .checkbox:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0);
-  }
-  
-  .checkbox-checked {
-    color: #000;
-    background: #fff;
-  }
+.todo__container--completed .todo__checkbox {
+  color: #000;
+  background: #fff;
+}
 
-  input {
-    border: none;
-    background: transparent;
-    color: white;
-    font-size: 1.4rem;
-    outline: none;
-    width: 100%;
-  }
+.todo__container--completed input {
+  text-decoration: line-through;
+}
+
+.todo__checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color .2s ease-in-out;
+  border: 1px solid #fff;
+}
+
+.todo__checkbox:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.todo__container input {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1.4rem;
+  outline: none;
+  width: 100%;
+  border-bottom: 2px solid rgba(0,0,0,0);
+  transition: border-bottom .2s ease-in-out;
+
+}
+
+.todo__container input:focus {
+  border-bottom: 2px solid white;
+}
